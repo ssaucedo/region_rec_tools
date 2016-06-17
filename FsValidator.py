@@ -5,13 +5,6 @@ import sys
 
 global_audio_folder = '/corpora'
 
-def load_wav_file( region_name , file_id_number ):
-    os.chdir("D:\\UADE\\PFI_workspace\\TestMultilingual\\corpora\\")
-    Fs, dat = wavfile.read(region_name+'/256K/'+ file_id_number)
-    normDat = normalize_audio( dat ).astype(float)
-    return Fs, normDat
-
-
 def iterateAndValidateFs(file_path,fs):
 
     for i in os.listdir(file_path):
