@@ -56,8 +56,7 @@ def retrieve_name(tree):
 
 
 
-corpus_urls = [
-"Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-5F07-F",
+a = ["Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-5F07-F",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-5F0C-A",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-5F10-4",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-5F14-0",
@@ -139,7 +138,9 @@ corpus_urls = [
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6049-2",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6045-6",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-604D-E",
-"Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6051-8",
+"Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6051-8"]
+
+corpus_urls = [
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6055-4",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-6059-0",
 "Metadata	application/xml+cmdi	http://hdl.handle.net/11022/0000-0000-605D-C",
@@ -332,9 +333,8 @@ l = []
 for url in corpus_urls:
     url = url[30:]
     tree = ElementTree.fromstring(requests.get(url).content)
-    print("!")
-    #retrieve_name(tree)
-    #url, region, name =  retrieve_wav_url(tree)
+    url, region, name =  retrieve_wav_url(tree)
+    print(str(url)+"   "+str(region)+"   "+str(name))
     #l.append(AudioFile(url, region, name))
 ordered = sorted(l, key=getKey)
 for o in ordered:

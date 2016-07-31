@@ -1,0 +1,7 @@
+
+
+form Test command line calls
+    sentence Name_of_the_ship Titanic
+endform
+
+print THIS IS THE NAME OF THE PATH:'name_of_the_ship$'
